@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 
@@ -41,7 +41,7 @@ const Cart = () => {
                     <label>Name</label>
                     <ErrorMessage name='name' component='span' />
                     <Field
-                        autocomplete='off'
+                        autoComplete='off'
                         id='inputCreateOrder'
                         name='name'
                         placeholder='name...'
@@ -49,7 +49,7 @@ const Cart = () => {
                     <label>Email</label>
                     <ErrorMessage name='email' component='span' />
                     <Field
-                        autocomplete='off'
+                        autoComplete='off'
                         id='inputCreateOrder'
                         name='email'
                         placeholder='email...'
@@ -57,7 +57,7 @@ const Cart = () => {
                     <label>Phone</label>
                     <ErrorMessage name='phone' component='span' />
                     <Field
-                        autocomplete='off'
+                        autoComplete='off'
                         id='inputCreateOrder'
                         name='phone'
                         placeholder='phone...'
@@ -65,7 +65,7 @@ const Cart = () => {
                     <label>Adress</label>
                     <ErrorMessage name='adress' component='span' />
                     <Field
-                        autocomplete='off'
+                        autoComplete='off'
                         id='inputCreateOrder'
                         name='adress'
                         placeholder='adress...'

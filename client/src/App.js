@@ -2,19 +2,20 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import PizzaCreate from './pages/PizzaCreate';
 
 function App() {
-
-
-
 
   return (
     <div className="App">
       <Router>
+        <Link to='/'> Home </Link>
         <Link to='/cart'> My Cart </Link>
+        <Link to='/pizzaCreate'> Pizza Create </Link>
         <Routes>
-          <Route path='/' exact element ={<Home />} />
-          <Route path='/cart' exact element ={<Cart />} />
+          <Route path='/' exact element={<Home />} />
+          <Route path='/cart' exact element={<Cart />} />
+          <Route path='/pizzaCreate' exact element={<PizzaCreate />} />
         </Routes>
       </Router>
 
