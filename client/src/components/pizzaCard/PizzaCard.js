@@ -4,7 +4,7 @@ const PizzaCard = (props) => {
     return (
         <div className='card-container'>
             <div className='img-wrapper'>
-
+                <img src={props.image} alt="pizza" />
             </div>
             <h4>{props.name}</h4>
             <div>

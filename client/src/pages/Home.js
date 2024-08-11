@@ -34,7 +34,7 @@ function Home() {
             </div>
             <div>
                 {listOfPizzas.map((value, key) => {
-                    return <PizzaCard name={value.name} largePrice={ value.PriceLarge } smallPrice={ value.PriceSmall }/>
+                    return <PizzaCard image={value.image} name={value.name} largePrice={ value.priceLarge } smallPrice={ value.priceSmall }/>
                 })
                 }
             </div>
