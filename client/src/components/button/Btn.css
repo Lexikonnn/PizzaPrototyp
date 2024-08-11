@@ -1,0 +1,38 @@
+@import '../../App.css';
+
+.btn {
+    cursor: pointer;
+    user-select: none;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-family: var(--roboto);
+
+    border-radius: 99px;
+    padding: 8px 16px;
+
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.btn-emerald {
+    color: var(--white);
+    background-color: var(--emerald);
+    border: 2px solid var(--emerald);
+}
+
+.btn-outline {
+    color: var(--emerald);
+    background-color: var(--white);
+    border: 2px solid var(--emerald);
+}
+
+.btn:hover {
+    transform: translateY(-8px);
+}
+
+.none {
+    display: none;
+}

@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+import PizzaCard from '../components/pizzaCard/PizzaCard';
+
 function Home() {
 
     const [listOfOrders, setListOfOrders] = useState([]);
@@ -32,7 +34,7 @@ function Home() {
             </div>
             <div>
                 {listOfPizzas.map((value, key) => {
-                    return <div> {value.name} </div>
+                    return <PizzaCard name={value.name} largePrice={ value.PriceLarge } smallPrice={ value.PriceSmall }/>
                 })
                 }
             </div>

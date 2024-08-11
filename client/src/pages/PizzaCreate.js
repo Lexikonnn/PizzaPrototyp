@@ -12,14 +12,14 @@ const PizzaCreate = () => {
 
     const initialValues = {
         name: "",
-        PriceLarge: "",
-        PriceSmall: "",
+        packagericeLarge: "",
+        priceSmall: "",
     };
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().required("Please input name!"),
-        PriceLarge: Yup.number().required("Please input price!"),
-        PriceSmall: Yup.number().required("Please input price!"),
+        priceLarge: Yup.number().required("Please input price!"),
+        priceSmall: Yup.number().required("Please input price!"),
     })
 
     const onSubmit = (data) => {
@@ -45,19 +45,19 @@ const PizzaCreate = () => {
                         placeholder='name...'
                     />
                     <label>Large Pizza Price</label>
-                    <ErrorMessage name='PriceLarge' component='span' />
+                    <ErrorMessage name='priceLarge' component='span' />
                     <Field
                         autoComplete='off'
                         id='inputCreatePizza'
-                        name='PriceLarge'
+                        name='priceLarge'
                         placeholder='price...'
                     />
                     <label>Small Pizza Price</label>
-                    <ErrorMessage name='PriceSmall' component='span' />
+                    <ErrorMessage name='priceSmall' component='span' />
                     <Field
                         autoComplete='off'
                         id='inputCreatePizza'
-                        name='PriceSmall'
+                        name='priceSmall'
                         placeholder='price...'
                     />
                     <button type='submit'>Create</button>
