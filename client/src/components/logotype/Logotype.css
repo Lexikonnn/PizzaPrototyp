@@ -1,0 +1,23 @@
+@import "../../App.css";
+
+.logo-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-pizza{
+    position: absolute;
+    font-family: var(--roboto);
+
+
+}
+
+.logo-fast{
+    position: absolute;
+    top: 25px;
+    left: 30px;
+
+    font-family: var(--roboto);
+    font-weight: 300;
+}

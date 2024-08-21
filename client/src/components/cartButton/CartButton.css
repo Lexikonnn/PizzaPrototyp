@@ -1,0 +1,18 @@
+@import "../../App.css";
+
+.cart-btn-wrapper {
+    display: flex;
+
+    background-color: var(--emerald);
+    box-shadow: var(--shadow);
+
+    padding: 15px;
+    border-radius: 27px;
+
+    cursor: pointer;
+}
+
+.cart-icon {
+    height: 33px;
+    width: auto;
+}
