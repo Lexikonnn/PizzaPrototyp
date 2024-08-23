@@ -4,13 +4,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
+
+    color: var(--white);
+    user-select: none;
 }
 
 .logo-pizza{
     position: absolute;
     font-family: var(--roboto);
-
-
 }
 
 .logo-fast{

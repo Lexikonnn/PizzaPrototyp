@@ -5,6 +5,10 @@ import imgUrl from "../assets/mockup.png";
 
 import PizzaCard from '../components/pizzaCard/PizzaCard';
 import Header from "../components/header/Header";
+import Btn from "../components/button/Btn";
+
+import pizza from "../assets/pizza.png";
+import drink from "../assets/drink.png";
 
 function Home() {
 
@@ -33,8 +37,15 @@ function Home() {
 
     return (
         <div>
-            <Header />
-
+            <div className='sticky'><Header /></div>
+            <div className='section landing'>
+                <div className='landing-wrapper'>
+                    <h1 className='lg-title'>Discover Our <br /> Pizza</h1>
+                    <Btn type="white" content="Let`s GO!" />
+                </div>
+                <img className='pizza-img' src={pizza} alt="pizza" />
+                <img  className='drink-img' src={drink} alt="drink" />
+            </div>
             {/*<div>
                 {listOfOrders.map((value, key) => {
                     return <div> {value.name} </div>
@@ -42,7 +53,7 @@ function Home() {
                 }
             </div>
             */}
-            <div>
+            <div className='section goods'>
                 {listOfPizzas.map((value, key) => {
                     return <PizzaCard image={value.image} name={value.name} largePrice={ value.priceLarge } smallPrice={ value.priceSmall }/>
                 })

@@ -29,6 +29,12 @@
     border: 2px solid var(--emerald);
 }
 
+.btn-white {
+    color: var(--orange);
+    background-color: var(--white);
+    border: 2px solid var(--white);
+}
+
 .btn:hover {
     transform: translateY(-8px);
 }

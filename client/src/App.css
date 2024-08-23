@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: rgb(242, 149, 98);
+  background: linear-gradient(90deg, rgba(242, 149, 98, 1) 0%, rgba(243, 82, 87, 1) 100%);
 }
 
 :root {
@@ -12,7 +14,6 @@
 
   --shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(105, 145, 91, 0.04) 0px 10px 10px -5px;
 
-
   --roboto: 'Roboto', sans-serif;
 }
 
@@ -21,9 +22,68 @@
   margin: 0;
 }
 
-.sl-title{
+.sl-title {
   font-family: var(--roboto);
   font-weight: 500;
   letter-spacing: 1.5px;
   font-size: 21px;
+
+  color: var(--black)
+}
+
+.lg-title {
+  font-family: var(--roboto);
+  font-weight: 400;
+  letter-spacing: 3px;
+  font-size: 52px;
+
+  color: var(--white)
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.landing {
+  flex-direction: column;
+  height: 85vh;
+}
+
+.goods {
+  justify-content: center;
+  gap: 25px;
+  padding: 50px 0;
+  background-color: var(--white);
+}
+
+.landing-wrapper {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  height: 95%;
+}
+
+.pizza-img {
+  z-index: 0;
+  position: absolute;
+  bottom: 30px;
+  right: 150px;
+}
+
+.drink-img {
+  z-index: 0;
+  position: absolute;
+  top: 90px;
+  left: 200px;
+}
+
+.sticky {
+  top: 0;
+  position: sticky;
 }
