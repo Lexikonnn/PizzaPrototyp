@@ -2,10 +2,10 @@ import CartButton from "../cartButton/CartButton";
 import Logo from "../logotype/Logotype";
 import "./Header.css"
 
-const Header = () => {
+const Header = ({isVisible}) => {
     return (
         <div className="header-wrapper">
-            <Logo />
+            <Logo isVisible={isVisible}/>
             <CartButton />
         </div>
     );

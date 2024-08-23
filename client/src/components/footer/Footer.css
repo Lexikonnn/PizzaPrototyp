@@ -1,0 +1,22 @@
+@import '../../App.css';
+
+.footer-wrapper{
+    position: relative;
+    bottom: 0;
+
+    color: var(--white);
+    font-family: var(--roboto);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+    padding: 42px 0;
+}
+
+.git-icon{
+    height: 48px;
+    width: 50px;
+}
