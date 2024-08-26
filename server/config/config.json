@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "pizzaDB",
     "host": "localhost",
     "dialect": "mysql"

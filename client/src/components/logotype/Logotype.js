@@ -5,7 +5,6 @@ const Logotype = ({ isVisible }) => {
     const [colorClass, setColorClass] = useState('text-black');
 
     useEffect(() => {
-        console.log("Visibility changed:", isVisible); // Debugging
         if (isVisible) {
             setColorClass('black');
         } else {

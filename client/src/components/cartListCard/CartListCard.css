@@ -1,0 +1,66 @@
+@import '../../App.css';
+
+.order-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    padding-bottom: 30px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+
+    padding: 30px 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    word-wrap: wrap;
+    
+    width: 100px;
+}
+
+.utilities-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.amount-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    gap: 20px;
+}
+
+.amount-wrapper p {
+    padding-top: 10px;
+}
+
+.space{
+    width: 20px;
+}
+
+.content-container p {
+    padding-top: 10px;
+
+}
+
+.pizza-preview {
+    height: 150px;
+    width: 150x;
+}
+
+.bin-icon{
+    height: 30px;
+    width: 22px;
+    padding-top: 3px;
+
+    cursor: pointer;
+}

@@ -1,10 +1,4 @@
 @import '../App.css';
-
-.section {
-    display: flex;
-    flex-direction: row;
-  
-  }
   
   .landing {
     flex-direction: column;

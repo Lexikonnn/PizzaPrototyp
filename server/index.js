@@ -9,7 +9,7 @@ app.use(cors());
 const db = require('./models');
 
 
-//routes
+
 const pizzaRouter = require('./routes/Pizzas');
 app.use("/pizzas", pizzaRouter);
 

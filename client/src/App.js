@@ -9,11 +9,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Link to='/'> Home </Link>
-        <Link to='/cart'> My Cart </Link>
-        <Link to='/pizzaCreate'> Pizza Create </Link>
         <Routes>
-          <Route path='/' exact element={<Home />} />
+          <Route path='/home' exact element={<Home />} />
           <Route path='/cart' exact element={<Cart />} />
           <Route path='/pizzaCreate' exact element={<PizzaCreate />} />
         </Routes>
