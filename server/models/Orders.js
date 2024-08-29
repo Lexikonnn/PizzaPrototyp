@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
-        adress: {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -28,11 +28,6 @@ module.exports = (sequelize, DataTypes) => {
         Orders.hasMany(models.Order_pizza, {
             foreignKey: 'id_order',
             as: 'orderPizzas'
-        });
-        Orders.belongsToMany(models.Pizzas, {
-            through: models.Order_pizza,
-            foreignKey: 'id_order',
-            as: 'pizzas'
         });
     };
 

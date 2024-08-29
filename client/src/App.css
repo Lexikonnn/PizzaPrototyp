@@ -38,6 +38,8 @@
 }
 
 .lg-title {
+  user-select: none;
+
   font-family: var(--roboto);
   font-weight: 400;
   letter-spacing: 3px;
@@ -58,11 +60,11 @@
   font-size: 16px;
 }
 
-.black{
+.black {
   color: var(--black)
 }
 
-.white{
+.white {
   color: var(--white);
 }
 

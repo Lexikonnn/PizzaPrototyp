@@ -35,5 +35,5 @@ module.exports = (sequelize, DataTypes) => {
     };
 
 
-        return Order_pizza;
-    }
+    return Order_pizza;
+}
