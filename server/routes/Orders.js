@@ -14,23 +14,35 @@ router.post('/', async (req, res) => {
     const { name, email, phone, address, pizzas } = req.body;
 
     try {
-
+        // Vytvoření nové objednávky
         const newOrder = await Orders.create({ name, email, phone, address });
 
-        
+        // Přidání nebo aktualizace pizz v objednávce
         if (pizzas && pizzas.length > 0) {
-            const orderPizzas = pizzas.map((pizza) => ({
-                id_order: newOrder.id,
-                id_pizza: pizza.id,
-                amount: pizza.amount || 1,
-            }));
+            for (const pizza of pizzas) {
+                const existingOrderPizza = await Order_pizza.findOne({
+                    where: {
+                        id_order: newOrder.id,
+                        id_pizza: pizza.id,
+                    }
+                });
 
-            await Order_pizza.bulkCreate(orderPizzas);
+                if (existingOrderPizza) {
+                    // Aktualizace množství pizzy
+                    await existingOrderPizza.update({ amount: existingOrderPizza.amount + pizza.amount });
+                } else {
+                    // Přidání nové pizzy do objednávky
+                    await Order_pizza.create({
+                        id_order: newOrder.id,
+                        id_pizza: pizza.id,
+                        amount: pizza.amount,
+                    });
+                }
+            }
         }
 
         res.status(201).json(newOrder);
     } catch (error) {
-        console.error('Failed to create order:', error);
         res.status(500).json({ error: `Failed to create order: ${error.message}` });
     }
 });
