@@ -1,25 +1,38 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './CartListCard.css';
-import binIcon from '../../assets/bin.png';
 import Btn from '../button/Btn';
+import { OrderedPizzasContext } from '../../contex/OrderPizzaContex';
 
 
 const CartListCard = (props) => {
 
-    const [amount, setAmount] = useState(1);
+    const { updatePizzaAmount, removePizza, priceMultiplier } = useContext(OrderedPizzasContext);
+    const [amount, setAmount] = useState(props.amount);
+
 
     const incrementAmount = () => {
-        setAmount(amount + 1);
+        setAmount(prevAmount => {
+            const newAmount = prevAmount + 1;
+            updatePizzaAmount(props.id, newAmount);
+            return newAmount;
+        });
     };
 
     const decrementAmount = () => {
-        if (amount > 1) {
-            setAmount(amount - 1);
-        }
-        else{
-            setAmount(amount);
-        }
+        setAmount(prevAmount => {
+            if (prevAmount > 1) {
+                const newAmount = prevAmount - 1;
+                updatePizzaAmount(props.id, newAmount);
+                return newAmount;
+            }
+            return prevAmount;
+        });
     };
+
+    const handleRemovePizza = () => {
+        removePizza(props.id);
+    };
+
 
     return (
         <div className='order-wrapper'>
@@ -35,8 +48,8 @@ const CartListCard = (props) => {
                         <p className='regular space'>{amount}</p>
                         <Btn content="-" ui="emerald" onClick={decrementAmount} />
                     </div>
-                    <p className='regular'>{`${props.price} €`}</p>
-                    <img className='bin-icon' src={binIcon} alt="bin" />
+                    <p className='regular price-wrapper'>{`${ priceMultiplier(props.price, amount) } €`}</p>
+                    <p className='remove-icon' onClick={handleRemovePizza}>X</p>
                 </div>
             </div>
 

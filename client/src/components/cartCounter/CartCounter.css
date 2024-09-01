@@ -1,0 +1,16 @@
+@import '../../App.css';
+
+.counter-wrapper {
+    position: absolute;
+    top: 60px;
+    right: 70px;
+}
+
+.counter-wrapper p {
+    border-radius: 999px;
+    padding: 5px 10px;
+    background-color: var(--white);
+    font-size: 16px;
+    font-family: var(--roboto);
+    color: var(--black);
+}

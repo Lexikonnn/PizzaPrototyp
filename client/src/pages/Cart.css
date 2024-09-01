@@ -3,12 +3,23 @@
 .cart{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 150px;
 
     padding-top: 30px;
     background-color: var(--white);
 
-    height: 80vh;
+    min-height: 80vh;
+}
+
+
+.order-container{
+    display: flex;
+    justify-content: center;
+}
+
+.text-wrapper{
+    color: var(--gray);
+    padding-left: 150px;
+    padding-bottom: 100px;
+
+    user-select: none;
 }

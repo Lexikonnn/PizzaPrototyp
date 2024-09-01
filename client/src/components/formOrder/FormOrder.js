@@ -35,7 +35,7 @@ const FormOrder = () => {
 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            <Form className='form-container'>
+            <Form className='form-wrapper'>
                 <h1 className='md-title black gap'>Who’s Hungry?</h1>
                 <label className='form-title'>Name</label>
                 <ErrorMessage name='name' component='span' className="error-msg" />

@@ -14,10 +14,8 @@ router.post('/', async (req, res) => {
     const { name, email, phone, address, pizzas } = req.body;
 
     try {
-        // Vytvoření nové objednávky
         const newOrder = await Orders.create({ name, email, phone, address });
 
-        // Přidání nebo aktualizace pizz v objednávce
         if (pizzas && pizzas.length > 0) {
             for (const pizza of pizzas) {
                 const existingOrderPizza = await Order_pizza.findOne({
@@ -28,10 +26,8 @@ router.post('/', async (req, res) => {
                 });
 
                 if (existingOrderPizza) {
-                    // Aktualizace množství pizzy
                     await existingOrderPizza.update({ amount: existingOrderPizza.amount + pizza.amount });
                 } else {
-                    // Přidání nové pizzy do objednávky
                     await Order_pizza.create({
                         id_order: newOrder.id,
                         id_pizza: pizza.id,

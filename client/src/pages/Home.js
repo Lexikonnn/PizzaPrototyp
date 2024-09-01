@@ -1,9 +1,8 @@
 import React from 'react'
 import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import './Home.css';
 import useVisibility from '../hooks/UseVisibility';
-import useOrderedPizzas from '../hooks/UseOrderedPizzas';
 
 import PizzaCard from '../components/pizzaCard/PizzaCard';
 import BaseLayout from '../layouts/Base';
@@ -12,38 +11,17 @@ import Btn from "../components/button/Btn";
 import pizza from "../assets/pizza.png";
 import drink from "../assets/drink.png";
 
+import { OrderedPizzasContext } from '../contex/OrderPizzaContex';
+
+
 function Home() {
 
-    const [orderedPizzas, addPizza] = useOrderedPizzas();
+    const { orderedPizzas, addPizza } = useContext(OrderedPizzasContext);
     const [listOfPizzas, setListOfPizzas] = useState([]);
-    const [shouldSendOrder, setShouldSendOrder] = useState(false);
 
-
-
-        useEffect(() => {
-            if (shouldSendOrder) {
-                console.log('Current ordered pizzas before sending:', orderedPizzas);
-                axios.post('http://localhost:3001/orders', {
-                    name: 'Peter',
-                    email: 'Harry@example.com',
-                    phone: '352765876',
-                    address: '12 Main St',
-                    pizzas: orderedPizzas
-                })
-                .then((response) => {
-                    console.log("Order created:", response.data);
-                    setShouldSendOrder(false);
-                })
-                .catch((error) => {
-                    console.error("There was an error creating the order!", error);
-                    setShouldSendOrder(false);
-                });
-            }
-        }, [shouldSendOrder, orderedPizzas]);
 
     const handleClick = (id, name, image, price) => {
         addPizza(id, name, image, price);
-        setShouldSendOrder(true);
     };
 
         console.log('Current ordered pizzas before sending:', orderedPizzas);

@@ -3,6 +3,7 @@
 .order-wrapper {
     display: flex;
     flex-direction: row;
+    user-select: none;
 
     padding-bottom: 30px;
 }
@@ -22,12 +23,14 @@
     flex-direction: column;
     text-align: left;
     word-wrap: wrap;
-    
+
     width: 100px;
 }
 
 .utilities-container {
+    position: relative;
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 40px;
 }
@@ -43,13 +46,8 @@
     padding-top: 10px;
 }
 
-.space{
+.space {
     width: 20px;
-}
-
-.content-container p {
-    padding-top: 10px;
-
 }
 
 .pizza-preview {
@@ -57,10 +55,11 @@
     width: 150x;
 }
 
-.bin-icon{
-    height: 30px;
-    width: 22px;
-    padding-top: 3px;
+.remove-icon {
+    font-family: var(--roboto);
+    color: var(--red);
+    font-size: 25px;
+    font-weight: 500;   
 
     cursor: pointer;
 }
