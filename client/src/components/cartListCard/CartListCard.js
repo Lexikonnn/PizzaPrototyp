@@ -33,8 +33,6 @@ const CartListCard = (props) => {
         removePizza(props.id);
     };
 
-    console.log("var size:", props.size);
-
     return (
         <div className='order-wrapper'>
             <img className='pizza-preview' src={props.image} alt='pizza' />

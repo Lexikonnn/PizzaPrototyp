@@ -13,7 +13,7 @@
 
 .order-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .text-wrapper{
@@ -27,6 +27,10 @@
 }
 
 .detail-container{
+    padding-bottom: 40px;
+}
+
+.detail-wrapper{
     display: flex;
     justify-content: right;
     padding-top: 10px;

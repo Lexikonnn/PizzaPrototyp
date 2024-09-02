@@ -1,37 +1,49 @@
 import './FormOrder.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import {useState} from 'react';
+import { useState, useContext } from 'react';
 import * as Yup from 'yup';
 import axios from 'axios';
-
 import Btn from '../button/Btn';
-
+import { OrderedPizzasContext } from '../../contex/OrderPizzaContex';
 
 const FormOrder = () => {
 
     const [listOfOrders, setListOfOrders] = useState([]);
+    const { orderedPizzas } = useContext(OrderedPizzasContext);
+
 
     const initialValues = {
         name: "",
         email: "",
         phone: "",
-        adress: "",
+        address: "",
+        pizzas: orderedPizzas || [],
     };
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().required("Please input your name!"),
         email: Yup.string().email().required("Please input your email!"),
         phone: Yup.number().required("Please input your phone!"),
-        adress: Yup.string().required("Please input your adress!"),
-    })
+        address: Yup.string().required("Please input your address!"),
+        pizzas: Yup.array().of(
+            Yup.object().shape({
+                id: Yup.number().required("Pizza ID is required"),
+                amount: Yup.number().required("Amount is required")
+            })
+        ).required("At least one pizza must be ordered!")
+    });
 
     const onSubmit = (data) => {
-
-        axios.post('http://localhost:3001/orders', data).then((response) => {
-            console.log("ok");
-            setListOfOrders(response.data);
-        });
+        axios.post('http://localhost:3001/orders', data)
+            .then((response) => {
+                console.log("Order placed successfully");
+                setListOfOrders(response.data);
+            })
+            .catch((error) => {
+                console.error("Error placing order:", error);
+            });
     }
+
 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
@@ -46,7 +58,7 @@ const FormOrder = () => {
                     placeholder='name...'
                 />
                 <label className='form-title'>Email</label>
-                <ErrorMessage name='email' component='span' className="error-msg"  />
+                <ErrorMessage name='email' component='span' className="error-msg" />
                 <Field className="input-field"
                     autoComplete='off'
                     id='inputCreateOrder'
@@ -54,20 +66,20 @@ const FormOrder = () => {
                     placeholder='email...'
                 />
                 <label className='form-title'>Phone</label>
-                <ErrorMessage name='phone' component='span' className="error-msg"  />
+                <ErrorMessage name='phone' component='span' className="error-msg" />
                 <Field className="input-field"
                     autoComplete='off'
                     id='inputCreateOrder'
                     name='phone'
                     placeholder='phone...'
                 />
-                <label className='form-title'>Adress</label>
-                <ErrorMessage name='adress' component='span' className="error-msg"  />
+                <label className='form-title'>Address</label>
+                <ErrorMessage name='address' component='span' className="error-msg" />
                 <Field className="input-field gap"
                     autoComplete='off'
                     id='inputCreateOrder'
-                    name='adress'
-                    placeholder='adress...'
+                    name='address'
+                    placeholder='address...'
                 />
                 <Btn type="submit" ui="emerald" content="Order" />
             </Form>

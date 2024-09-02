@@ -19,31 +19,35 @@ const Cart = () => {
     return (
         <BaseLayout isVisible={isVisible}>
             {orderedPizzas <= 0 ? <h1 className='md-title black text-wrapper' ref={sectionRef}>Cart is Empty</h1> :
-            <div className='section cart' ref={sectionRef}>
+                <div className='section cart' ref={sectionRef}>
 
-                <div className='order-container'>
-                    {
-                        orderedPizzas.map((order, key) => {
-                            return <PizzaCard
-                                id={order.id}
-                                image={order.image}
-                                name={order.name}
-                                amount={order.amount}
-                                price={order.price}
-                                size={order.size}
-                            />
-                        })
-                    }
-                    <hr className='line'/>
-                    <div className='detail-container'>
-                        <p className='small black'>Total Price: {totalPrice()} €</p>
+                    <div className='order-container'>
+                        <div>
+                            {
+                                orderedPizzas.map((order, key) => {
+                                    return <PizzaCard
+                                        id={order.id}
+                                        image={order.image}
+                                        name={order.name}
+                                        amount={order.amount}
+                                        price={order.price}
+                                        size={order.size}
+                                    />
+                                })
+                            }
+                        </div>
+                        <div className='detail-container'>
+                            <hr className='line' />
+                            <div className='detail-wrapper'>
+                                <p className='small black'>Total Price: {totalPrice()} €</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className='form-container'>
-                    <FormOrder />
-                </div>
+                    <div className='form-container'>
+                        <FormOrder />
+                    </div>
 
-            </div>}
+                </div>}
         </BaseLayout>
     );
 }

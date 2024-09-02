@@ -30,8 +30,6 @@ function Home() {
 
     useEffect(() => {
         axios.get('http://localhost:3001/pizzas').then((response) => {
-            console.log(response.data); // Zkontrolujte, zda data obsahují `size`
-
             setListOfPizzas(response.data);
         });
     }, []);

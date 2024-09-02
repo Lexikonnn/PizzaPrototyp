@@ -12,33 +12,35 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { name, email, phone, address, pizzas } = req.body;
+    console.log("Received data:", { name, email, phone, address, pizzas });
 
     try {
+        // Basic validation
+        if (!name || !email || !phone || !address || !Array.isArray(pizzas)) {
+            return res.status(400).json({ error: "Invalid input data" });
+        }
+
+        // Create new order
         const newOrder = await Orders.create({ name, email, phone, address });
 
-        if (pizzas && pizzas.length > 0) {
-            for (const pizza of pizzas) {
-                const existingOrderPizza = await Order_pizza.findOne({
-                    where: {
-                        id_order: newOrder.id,
-                        id_pizza: pizza.id,
-                    }
-                });
+        // Create or update Order_pizza entries
+        for (const pizza of pizzas) {
+            const { id, amount } = pizza;
 
-                if (existingOrderPizza) {
-                    await existingOrderPizza.update({ amount: existingOrderPizza.amount + pizza.amount });
-                } else {
-                    await Order_pizza.create({
-                        id_order: newOrder.id,
-                        id_pizza: pizza.id,
-                        amount: pizza.amount,
-                    });
-                }
+            if (!id || !amount) {
+                return res.status(400).json({ error: "Invalid pizza data" });
             }
+
+            await Order_pizza.upsert({
+                id_order: newOrder.id,
+                id_pizza: id,
+                amount: amount
+            });
         }
 
         res.status(201).json(newOrder);
     } catch (error) {
+        console.error("Error creating order:", error);
         res.status(500).json({ error: `Failed to create order: ${error.message}` });
     }
 });
