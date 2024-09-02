@@ -24,33 +24,63 @@ const seedPizzas = async () => {
     const pizzas = [
         {
             name: 'Margherita',
-            priceLarge: 8.99,
-            priceSmall: 6.99,
-            imageUrl: '/assets/mockup.png',  // URL obrázku
+            price: 8.99,
+            size: 'large',
+            imageUrl: '/assets/mockup.png',
+        },
+        {
+            name: 'Margherita',
+            price: 5.99,
+            size: 'small',
+            imageUrl: '/assets/mockup.png',
         },
         {
             name: 'Pepperoni',
-            priceLarge: 10.99,
-            priceSmall: 7.99,
-            imageUrl: '/assets/mockup.png',  // URL obrázku
+            price: 10.99,
+            size: 'large',
+            imageUrl: '/assets/mockup.png',
+        },
+        {
+            name: 'Pepperoni',
+            price: 7.99,
+            size: 'small',
+            imageUrl: '/assets/mockup.png',
         },
         {
             name: 'Vegetarian',
-            priceLarge: 9.99,
-            priceSmall: 7.49,
-            imageUrl: '/assets/mockup.png',  // URL obrázku
+            price: 9.99,
+            size: 'large',
+            imageUrl: '/assets/mockup.png',
+        },
+        {
+            name: 'Vegetarian',
+            price: 6.99,
+            size: 'small',
+            imageUrl: '/assets/mockup.png',
         },
         {
             name: 'BBQ Chicken',
-            priceLarge: 11.99,
-            priceSmall: 8.49,
-            imageUrl: '/assets/mockup.png',  // URL obrázku
+            price: 11.99,
+            size: 'large',
+            imageUrl: '/assets/mockup.png',
+        },
+        {
+            name: 'BBQ Chicken',
+            price: 8.99,
+            size: 'small',
+            imageUrl: '/assets/mockup.png',
         },
         {
             name: 'Hawaiian',
-            priceLarge: 10.49,
-            priceSmall: 7.99,
-            imageUrl: '/assets/mockup.png',  // URL obrázku
+            price: 10.49,
+            size: 'large',
+            imageUrl: '/assets/mockup.png',
+        },
+        {
+            name: 'Hawaiian',
+            price: 8.49,
+            size: 'small',
+            imageUrl: '/assets/mockup.png',
         },
     ];
 
