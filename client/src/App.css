@@ -55,6 +55,7 @@
 
 .small {
   font-family: var(--roboto);
+  color: var(--gray); 
   font-weight: 200;
   letter-spacing: 3px;
   font-size: 16px;
@@ -68,7 +69,15 @@
   color: var(--white);
 }
 
+.gray{
+  color: var(--gray);
+}
+
 .section {
   display: flex;
   flex-direction: row;
+}
+
+.line{
+  border: var(--gray) 0.9px solid;
 }

@@ -32,6 +32,12 @@ export const OrderedPizzasProvider = ({ children }) => {
         return priceMultiplied;
     }
 
+    const totalPrice = () => {
+        return orderedPizzas.reduce((total, pizza) => {
+            return total + priceMultiplier(pizza.price, pizza.amount);
+        }, 0);
+    };
+
     const removePizza = (id) => {
         setOrderedPizzas((prev) => {
             return prev.filter(pizza => pizza.id !== id);
@@ -39,7 +45,7 @@ export const OrderedPizzasProvider = ({ children }) => {
     };
 
     return (
-        <OrderedPizzasContext.Provider value={{ orderedPizzas, addPizza, updatePizzaAmount, removePizza, priceMultiplier }}>
+        <OrderedPizzasContext.Provider value={{ orderedPizzas, addPizza, updatePizzaAmount, removePizza, priceMultiplier, totalPrice }}>
             {children}
         </OrderedPizzasContext.Provider>
     );

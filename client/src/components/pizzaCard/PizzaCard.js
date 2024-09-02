@@ -10,9 +10,8 @@ const PizzaCard = (props) => {
             </div>
             <h4 className='sl-title'>{props.name}</h4>
             <div className='btn-container'>
-                <Btn content={`${props.largePrice} €`} ui='emerald' onClick={() => props.onClick(props.id, props.name, props.image, props.largePrice)} />
-                <Btn content={`${props.smallPrice} €`} ui='outline' onClick={() => props.onClick(props.id, props.name, props.image, props.smallPrice)} />
-
+                <Btn content={`${props.largePrice} €`} ui='emerald' onClick={() => props.onClick(props.largeId, props.name, props.image, props.largePrice, 'large')} />
+                <Btn content={`${props.smallPrice} €`} ui='outline' onClick={() => props.onClick(props.smallId, props.name, props.image, props.smallPrice, 'small')} />
             </div>
         </div>
     );

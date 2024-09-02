@@ -33,6 +33,7 @@ const CartListCard = (props) => {
         removePizza(props.id);
     };
 
+    console.log("var size:", props.size);
 
     return (
         <div className='order-wrapper'>
@@ -44,11 +45,11 @@ const CartListCard = (props) => {
                 </div>
                 <div className='utilities-container'>
                     <div className="amount-wrapper">
-                        <Btn content="+" ui="emerald" onClick={incrementAmount} />
-                        <p className='regular space'>{amount}</p>
                         <Btn content="-" ui="emerald" onClick={decrementAmount} />
+                        <p className='regular space'>{amount}</p>
+                        <Btn content="+" ui="emerald" onClick={incrementAmount} />
                     </div>
-                    <p className='regular price-wrapper'>{`${ priceMultiplier(props.price, amount) } €`}</p>
+                    <p className='regular price-wrapper'>{`${priceMultiplier(props.price, amount)} €`}</p>
                     <p className='remove-icon' onClick={handleRemovePizza}>X</p>
                 </div>
             </div>

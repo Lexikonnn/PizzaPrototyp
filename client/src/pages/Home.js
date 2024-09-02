@@ -20,12 +20,9 @@ function Home() {
     const [listOfPizzas, setListOfPizzas] = useState([]);
 
 
-    const handleClick = (id, name, image, price) => {
-        addPizza(id, name, image, price);
+    const handleClick = (id, name, image, price, size) => {
+        addPizza(id, name, image, price, size);
     };
-
-        console.log('Current ordered pizzas before sending:', orderedPizzas);
-
 
     const sectionRef = useRef(null);
     const isVisible = useVisibility(sectionRef);
@@ -33,6 +30,8 @@ function Home() {
 
     useEffect(() => {
         axios.get('http://localhost:3001/pizzas').then((response) => {
+            console.log(response.data); // Zkontrolujte, zda data obsahují `size`
+
             setListOfPizzas(response.data);
         });
     }, []);
@@ -49,15 +48,23 @@ function Home() {
                     <img className='drink-img' src={drink} alt="drink" />
                 </div>
                 <div className='section goods' ref={sectionRef}>
-                    {listOfPizzas.map((pizza, key) => {
-                        return <PizzaCard
-                            id={pizza.id}
-                            image={pizza.imageUrl}
-                            name={pizza.name}
-                            largePrice={pizza.priceLarge}
-                            smallPrice={pizza.priceSmall}
-                            onClick={handleClick} />
-                    })
+                    {listOfPizzas
+                        .filter(pizza => pizza.size === 'large')
+                        .map((pizza, key) => {
+                            const smallPizza = listOfPizzas.find(p => p.name === pizza.name && p.size === 'small');
+                            return (<PizzaCard
+                                key={pizza.id}
+                                id={pizza.id}
+                                image={pizza.imageUrl}
+                                name={pizza.name}
+                                largePrice={pizza.price}
+                                largeId={pizza.id}
+                                smallPrice={smallPizza?.price}
+                                smallId={smallPizza?.id}
+                                onClick={handleClick}
+                                />
+                            );
+                        })
                     }
                 </div>
             </ BaseLayout>

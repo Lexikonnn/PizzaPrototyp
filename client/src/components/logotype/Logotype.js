@@ -2,20 +2,22 @@ import React, { useEffect, useState } from 'react';
 import "./Logotype.css";
 
 const Logotype = ({ isVisible }) => {
-    const [colorClass, setColorClass] = useState('text-black');
+    const [textColorClass, setTextColorClass] = useState('text-black');
 
     useEffect(() => {
         if (isVisible) {
-            setColorClass('black');
+            setTextColorClass('black');
         } else {
-            setColorClass('white');
+            setTextColorClass('white');
         }
     }, [isVisible]);
 
     return (
-        <div className={`logo-wrapper ${colorClass}`}>
-            <h1 className="logo-pizza">Pizza</h1>
-            <h1 className="logo-fast">Fast</h1>
+        <div className='logo-wrapper'>
+            <div>
+                <h1 className={`logo-pizza ${textColorClass}`}>Pizza</h1>
+                <h1 className={`logo-fast ${textColorClass}`}>Fast</h1>
+            </div>
         </div>
     );
 };

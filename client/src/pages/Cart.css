@@ -17,9 +17,18 @@
 }
 
 .text-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--gray);
-    padding-left: 150px;
-    padding-bottom: 100px;
-
+    background-color: var(--white);
+    height: 80vh;
     user-select: none;
+}
+
+.detail-container{
+    display: flex;
+    justify-content: right;
+    padding-top: 10px;
+    padding-right: 30px;
 }

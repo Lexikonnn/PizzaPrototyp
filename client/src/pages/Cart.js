@@ -11,16 +11,18 @@ import { OrderedPizzasContext } from '../contex/OrderPizzaContex';
 
 const Cart = () => {
 
-    const { orderedPizzas } = useContext(OrderedPizzasContext);
+    const { orderedPizzas, totalPrice } = useContext(OrderedPizzasContext);
     const sectionRef = useRef(null);
     const isVisible = useVisibility(sectionRef);
 
+
     return (
         <BaseLayout isVisible={isVisible}>
+            {orderedPizzas <= 0 ? <h1 className='md-title black text-wrapper' ref={sectionRef}>Cart is Empty</h1> :
             <div className='section cart' ref={sectionRef}>
 
                 <div className='order-container'>
-                    {orderedPizzas <= 0 ? <h1 className='md-title black text-wrapper'>Cart is Empty</h1> :
+                    {
                         orderedPizzas.map((order, key) => {
                             return <PizzaCard
                                 id={order.id}
@@ -32,12 +34,16 @@ const Cart = () => {
                             />
                         })
                     }
+                    <hr className='line'/>
+                    <div className='detail-container'>
+                        <p className='small black'>Total Price: {totalPrice()} €</p>
+                    </div>
                 </div>
                 <div className='form-container'>
                     <FormOrder />
                 </div>
 
-            </div>
+            </div>}
         </BaseLayout>
     );
 }

@@ -29,3 +29,12 @@
 .black{
     color: var(--black);
 }
+
+.bg-white{
+    background-color: var(--white);
+    border-radius: 999px;
+}
+
+.bg-transparent{
+    background-color: transparent;
+}
