@@ -29,7 +29,7 @@ function Home() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/pizzas').then((response) => {
+        axios.get('http://localhost:3001/pizzas').then((response) => {  
             setListOfPizzas(response.data);
         });
     }, []);

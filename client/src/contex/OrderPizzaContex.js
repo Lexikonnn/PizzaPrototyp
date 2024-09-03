@@ -44,8 +44,12 @@ export const OrderedPizzasProvider = ({ children }) => {
         });
     };
 
+    const clearCart = () => {
+        setOrderedPizzas([]);
+    };
+
     return (
-        <OrderedPizzasContext.Provider value={{ orderedPizzas, addPizza, updatePizzaAmount, removePizza, priceMultiplier, totalPrice }}>
+        <OrderedPizzasContext.Provider value={{ orderedPizzas, addPizza, updatePizzaAmount, removePizza, priceMultiplier, totalPrice, clearCart }}>
             {children}
         </OrderedPizzasContext.Provider>
     );

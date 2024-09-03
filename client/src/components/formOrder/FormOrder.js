@@ -8,8 +8,7 @@ import { OrderedPizzasContext } from '../../contex/OrderPizzaContex';
 
 const FormOrder = () => {
 
-    const [listOfOrders, setListOfOrders] = useState([]);
-    const { orderedPizzas } = useContext(OrderedPizzasContext);
+    const { orderedPizzas, clearCart } = useContext(OrderedPizzasContext);
 
 
     const initialValues = {
@@ -33,11 +32,12 @@ const FormOrder = () => {
         ).required("At least one pizza must be ordered!")
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, { resetForm }) => {
         axios.post('http://localhost:3001/orders', data)
             .then((response) => {
                 console.log("Order placed successfully");
-                setListOfOrders(response.data);
+                clearCart();
+                resetForm();
             })
             .catch((error) => {
                 console.error("Error placing order:", error);
