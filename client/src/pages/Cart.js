@@ -1,19 +1,29 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 import useVisibility from '../hooks/UseVisibility';
 import BaseLayout from '../layouts/Base';
 import FormOrder from '../components/formOrder/FormOrder';
 import './Cart.css';
 import PizzaCard from '../components/cartListCard/CartListCard';
+import Modal from '../components/modal/Modal';
 
 import { OrderedPizzasContext } from '../contex/OrderPizzaContex';
 
 
 const Cart = () => {
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { orderedPizzas, totalPrice } = useContext(OrderedPizzasContext);
     const sectionRef = useRef(null);
     const isVisible = useVisibility(sectionRef);
+
+    const handleOrderSuccess = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
 
     return (
@@ -44,10 +54,11 @@ const Cart = () => {
                         </div>
                     </div>
                     <div className='form-container'>
-                        <FormOrder />
+                        <FormOrder onOrderSuccess={handleOrderSuccess}/>
                     </div>
 
                 </div>}
+                {isModalOpen && <Modal onClose={closeModal} />}
         </BaseLayout>
     );
 }

@@ -1,0 +1,40 @@
+@import url('../../App.css');
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: var(--white);
+    padding: 56px 28px;
+    border-radius: 8px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.car-image {
+    height: 112px;
+    width: 140px;
+}
